@@ -22,7 +22,7 @@ Ayrıca, Stockfish motorunun sisteminizde yüklü olması gerekmektedir. Stockfi
 Projeyi çalıştırmak için terminalde aşağıdaki komutu kullanın:
 
 ```sh
-python chess_ai.py
+python chess_game.py
 ```
 
 ### Kullanıcı Hamlesi
