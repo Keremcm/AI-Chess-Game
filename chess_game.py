@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QTe
 from PyQt5.QtSvg import QSvgWidget
 
 # Stockfish motorunun yolu
-STOCKFISH_PATH = "C:/Users/CASPER/repos/DQN/Chess/stockfish/stockfish-windows-x86-64-avx2.exe"
+STOCKFISH_PATH = "C:/.../stockfish/stockfish-windows-x86-64-avx2.exe"
 
 class ChessGUI(QWidget):
     def __init__(self):
@@ -16,7 +16,7 @@ class ChessGUI(QWidget):
         # Satranç tahtası ve mesaj listesi
         self.board = chess.Board()
         self.messages = []
-        self.messages.append({"role": "user", "content": f"Merhaba Asistan, ben Keremcem. Bugün santranç oynayacağız. Ben beyazım ve sen siyahsın. Beni yenebilecek misin?"})
+        self.messages.append({"role": "user", "content": f"Merhaba Asistan. Bugün santranç oynayacağız. Ben beyazım ve sen siyahsın. Beni yenebilecek misin?"})
 
         self.initUI()
         self.engine = chess.engine.SimpleEngine.popen_uci(STOCKFISH_PATH)
@@ -57,7 +57,7 @@ class ChessGUI(QWidget):
         if chess.Move.from_uci(move) in self.board.legal_moves:
             self.board.push_uci(move)
             self.log.append(f"Senin hamlen: {move}")
-            self.messages.append({"role": "user", "content": f"Keremcem'in hamlesi: {move}"})
+            self.messages.append({"role": "user", "content": f"Kullanıcı hamlesi: {move}"})
             
             # Asistan hamlesi
             result = self.engine.play(self.board, chess.engine.Limit(time=1.0))
